@@ -4,9 +4,13 @@ import serial
 import threading
 import time
 import requests
+from dotenv import load_dotenv
+import os
+
 
 app = Flask(__name__)
 CORS(app)
+load_dotenv()
 
 SERIAL_PORT = '/dev/ttyACM0'  # Ajuste se necessário
 BAUD_RATE = 115200
@@ -24,7 +28,7 @@ dados_usuario = {
     "telegram_id": None
 }
 
-TOKEN = '7381307857:AAH3b72NoyMYP9eEs7BRyLn4-gk7CY7gFM0'
+TOKEN = os.getenv('TOKEN_BOT')
 
 def enviar_alerta(mensagem, chat_id):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
