@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N.E.T.O - Supporting</title>
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header estilizado cinza escuro */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      user-select: none;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Container principal com sidebar e conteúdo lado a lado */
+    .app-container {
+      flex: 1;
+      display: flex;
+      height: calc(100vh - 60px - 40px); /* subtrai header e footer */
+    }
+
+    /* Barra lateral fixa */
+    nav.sidebar {
+      width: 220px;
+      background-color: #222;
+      color: white;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    nav.sidebar a {
+      color: #ddd;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+      border-left: 4px solid transparent;
+    }
+
+    nav.sidebar a:hover {
+      background-color: #444;
+      color: #fff;
+      border-left-color: #e74c3c;
+    }
+
+    nav.sidebar a.active {
+      background-color: #e74c3c;
+      color: white;
+      border-left-color: white;
+    }
+
+    /* Conteúdo principal */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+      overflow-y: auto;
+      background: #f5f5f5;
+    }
+
+    /* Containers internos (form + batimentos) lado a lado */
+    .forms-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* Container do formulário */
+    #userForm {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      width: 100%;
+      text-align: left;
+      font-weight: 600;
+      color: #555;
+    }
+    #userForm label {
+      display: block;
+      margin-bottom: 6px;
+    }
+    #userForm input {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+    #userForm button {
+      width: 100%;
+      background-color: #e74c3c;
+      border: none;
+      padding: 10px;
+      color: white;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    #userForm button:hover {
+      background-color: #c0392b;
+    }
+    #userMsg {
+      font-weight: 600;
+      color: green;
+      margin-top: 10px;
+      min-height: 24px;
+    }
+
+    /* Container do batimento */
+    .container {
+      background: #fff;
+      padding: 3rem 4rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      align-self: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    #bpm-value {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #e74c3c; /* vermelho */
+      margin-bottom: 0.3rem;
+      letter-spacing: 2px;
+    }
+
+    .label {
+      font-size: 1.3rem;
+      color: #888;
+      letter-spacing: 1.5px;
+    }
+
+    /* Alerta piscando */
+    #alerta {
+      display: none;
+      margin-top: 20px;
+      background-color: red;
+      color: white;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 8px;
+      animation: piscar 1s infinite;
+    }
+    @keyframes piscar {
+      0% { background-color: red; }
+      50% { background-color: darkred; }
+      100% { background-color: red; }
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-weight: 600;
+      color: #666;
+      box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .app-container {
+        flex-direction: column;
+        height: auto;
+      }
+      nav.sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0.5rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      nav.sidebar a {
+        padding: 10px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+      }
+      nav.sidebar a:hover {
+        background-color: transparent;
+        border-bottom-color: #e74c3c;
+      }
+      nav.sidebar a.active {
+        background-color: transparent;
+        border-bottom-color: #e74c3c;
+        color: #e74c3c;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      .forms-container {
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    N.E.T.O - Supporting
+  </header>
+
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="index.html" class="active">Monitor</a>
+      <a href="idtele.html">Como achar meu Telegram ID</a>
+      <a href="remedios.html">Remédios</a>
+      <a href="sobre.html">Sobre o Sistema</a>
+    </nav>
+
+    <main>
+      <div class="forms-container">
+        <!-- Form para cadastro do usuário -->
+        <form id="userForm">
+          <h2>Configurar alerta via Telegram</h2>
+          <label for="nome">Nome do paciente:</label>
+          <input type="text" id="nome" required placeholder="Digite seu nome" />
+
+          <label for="telegram">Telegram ID (número):</label>
+          <input type="text" id="telegram" required placeholder="Ex: 123456789" />
+
+          <button type="submit">Salvar Dados</button>
+          <div id="userMsg"></div>
+        </form>
+
+        <!-- Seu container de batimentos -->
+        <div class="container">
+          <h1>Batimentos Cardíacos</h1>
+          <div id="bpm-value">--</div>
+          <div class="label">bpm</div>
+          <div id="bpm-message" style="margin-top: 10px; font-weight: 700; font-size: 1.2rem;"></div>
+          <div id="alerta">🚨 ALERTA: BPM ALTO 🚨</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © N.E.T.O - 2025
+  </footer>
+
+  <script>
+    // Função para salvar dados no backend via API
+    const form = document.getElementById('userForm');
+    const userMsg = document.getElementById('userMsg');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const telegram = document.getElementById('telegram').value.trim();
+
+      if (!nome || !telegram) {
+        userMsg.textContent = 'Por favor, preencha todos os campos.';
+        userMsg.style.color = 'red';
+        return;
+      }
+
+      try {
+        const resp = await fetch('http://127.0.0.1:5000/api/usuario', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome: nome, telegram_id: telegram })
+        });
+        if (!resp.ok) {
+          const errData = await resp.json();
+          userMsg.textContent = 'Erro: ' + (errData.error || 'Desconhecido');
+          userMsg.style.color = 'red';
+          return;
+        }
+        const data = await resp.json();
+        userMsg.textContent = data.message;
+        userMsg.style.color = 'green';
+      } catch (error) {
+        userMsg.textContent = 'Erro ao salvar dados.';
+        userMsg.style.color = 'red';
+      }
+    });
+
+    // Função para buscar BPM e atualizar display
+    async function fetchBpm() {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/api/bpm');
+        const data = await response.json();
+        const bpmValue = data.bpm;
+
+        const bpmValueElem = document.getElementById('bpm-value');
+        const bpmMsgElem = document.getElementById('bpm-message');
+        const alertaElem = document.getElementById('alerta');
+
+        if (bpmValue !== null && bpmValue !== undefined) {
+          bpmValueElem.textContent = bpmValue;
+
+          if (bpmValue < 50) {
+            bpmMsgElem.textContent = 'BPM BAIXO';
+            bpmMsgElem.style.color = '#3498db';
+          } else if (bpmValue > 110) {
+            bpmMsgElem.textContent = 'BPM ALTO';
+            bpmMsgElem.style.color = '#e74c3c';
+          } else {
+            bpmMsgElem.textContent = '';
+          }
+
+          if (data.alert) {
+            alertaElem.style.display = 'block';
+          } else {
+            alertaElem.style.display = 'none';
+          }
+
+        } else {
+          bpmValueElem.textContent = 'Aguardando...';
+          bpmMsgElem.textContent = '';
+          alertaElem.style.display = 'none';
+        }
+      } catch (error) {
+        document.getElementById('bpm-value').textContent = 'Erro';
+        document.getElementById('bpm-message').textContent = '';
+        document.getElementById('alerta').style.display = 'none';
+        console.error('Erro ao buscar dados:', error);
+      }
+    }
+
+    fetchBpm();
+    setInterval(fetchBpm, 1000);
+  </script>
+</body>
+</html>
