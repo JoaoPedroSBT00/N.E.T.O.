@@ -1,12 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N.E.T.O - Supporting</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N.E.T.O - Supporting</title>
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      user-select: none;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Container principal */
+    .app-container {
+      flex: 1;
+      display: flex;
+      height: calc(100vh - 60px - 40px);
+    }
+
+    /* Sidebar */
+    nav.sidebar {
+      width: 220px;
+      background-color: #222;
+      color: white;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    nav.sidebar a {
+      color: #ddd;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+      border-left: 4px solid transparent;
+    }
+
+    nav.sidebar a:hover {
+      background-color: #444;
+      color: #fff;
+      border-left-color: #e74c3c;
+    }
+
+    nav.sidebar a.active {
+      background-color: #e74c3c;
+      color: white;
+      border-left-color: white;
+    }
+
+    /* Conteúdo principal */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+      overflow-y: auto;
+      background: #f5f5f5;
+    }
+
+    /* Container do conteúdo */
+    .forms-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* Tutorial de configuração */
+    .alert-config {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .alert-config h1 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      color: #222;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 1rem;
+    }
+
+    /* Passos */
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      background-color: #e74c3c;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .step-content {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .step-content h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    .step-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Imagens */
+    .step-image,
+    .step-images {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .step-image img,
+    .step-images img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
+      background: #fafafa;
+      padding: 8px;
+    }
+
+    .step-image img:hover,
+    .step-images img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-weight: 600;
+      color: #666;
+      box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    /* Responsivo */
+    @media (max-width: 700px) {
+      .step {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .step-number {
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    oi 
-    
+  <header>
+    N.E.T.O - Supporting
+  </header>
+
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="/">Monitor</a>
+      <a href="idtele.html" class="active">Como configurar meu alerta?</a>
+      <a href="remedios.html">Remédios</a>
+      <a href="sobre.html">Sobre o Sistema</a>
+    </nav>
+
+    <main>
+      <div class="forms-container">
+        <section class="alert-config">
+          <h1>Como configurar o alerta de batimento cardíaco</h1>
+
+          <!-- Passo 1 -->
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h2>Baixar o Telegram e criar conta</h2>
+              <p>Para começar, baixe o aplicativo <strong>Telegram</strong> no seu celular ou computador. Ele está disponível gratuitamente na <strong>Google Play Store</strong>, <strong>App Store</strong> e também em versão desktop. Após instalar, crie sua conta informando seu número de telefone e siga as instruções para confirmar o cadastro.</p>
+            </div>
+          </div>
+
+          <!-- Passo 2 -->
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h2>Obter seu ID do Telegram</h2>
+              <p>O ID do Telegram é um identificador único necessário para que o sistema envie notificações para você. A forma mais fácil de obtê-lo é pequisando e usando o bot <strong>@MissRose_bot</strong> (Ou escanear o QRCode abaixo).Basta abrir o bot, clicar em "Start", digitar <strong>"/id"</strong> e copiar o número exibido como "ID".</p>
+              <div class="step-image">
+                <img src="imagens/telid.jpeg" alt="Exemplo de como encontrar o ID no Telegram">
+              </div>
+            </div>
+          </div>
+
+          <!-- Passo 3 -->
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h2>Abrir o bot N.E.T.O</h2>
+              <p>No Telegram, basta pesquisar por <strong>@suppnetto_bot</strong>(Ou escanear o QRCode abaixo.) e abrir a conversa. Clique em "Start" para iniciar a comunicação com o bot. Ele será responsável por enviar os alertas de batimento cardíaco. </p>
+              <div class="step-images">
+                <img src="imagens/netid.jpeg" alt="Abrindo o bot">
+              </div>
+            </div>
+          </div>
+
+          <!-- Passo 4 -->
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h2>Preencher o formulário no sistema</h2>
+              <p>Por fim, acesse a página <strong>Monitoramento</strong> do sistema N.E.T.O - Supporting. No formulário, insira seu nome e o ID do Telegram obtido no passo 2. Salve as informações para começar a receber alertas automaticamente sempre que houver alterações no seu batimento cardíaco.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © N.E.T.O - 2025
+  </footer>
 </body>
 </html>
