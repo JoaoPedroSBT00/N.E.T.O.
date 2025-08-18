@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N.E.T.O - Remédios</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1.5rem;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .app-container {
+      flex: 1;
+      display: flex;
+    }
+
+    nav.sidebar {
+      width: 220px;
+      background-color: #222;
+      color: white;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    nav.sidebar a {
+      color: #ddd;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+      border-left: 4px solid transparent;
+    }
+
+    nav.sidebar a:hover {
+      background-color: #444;
+      color: #fff;
+      border-left-color: #e74c3c;
+    }
+
+    nav.sidebar a.active {
+      background-color: #e74c3c;
+      color: white;
+      border-left-color: white;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .about-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .about-card h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      width: 100%;
+    }
+
+    .about-image img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .about-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .about-section a {
+      text-decoration: none;
+      color: #e74c3c;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .about-section a:hover {
+      color: #c0392b;
+    }
+
+    footer {
+      background: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-weight: 600;
+      color: #666;
+      box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>N.E.T.O - Remédios</header>
+
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="/">Monitor</a>
+      <a href="idtele.html">Como configurar meu alerta?</a>
+      <a href="remedios.html" class="active">Remédios</a>
+      <a href="sobre.html">Sobre o Sistema</a>
+    </nav>
+
+    <main>
+      <div class="about-container">
+
+        <section class="about-card">
+          <h1>Losartana Potássica 50mg</h1>
+          <div class="about-image">
+            <img src="imagens/losartana.png" alt="Losartana">
+          </div>
+          <div class="about-section">
+            <h2>Indicação</h2>
+            <p>Tratamento da hipertensão arterial e proteção da função cardíaca.</p>
+            <a href="https://www.domifarma.com.br/losartana-potassica-50mg-c-30cpr-p66217-p91107" target="_blank">Mais informações no site confiável</a>
+          </div>
+        </section>
+
+        <section class="about-card">
+          <h1>AAS 100mg</h1>
+          <div class="about-image">
+            <img src="imagens/AAS.png" alt="AAS">
+          </div>
+          <div class="about-section">
+            <h2>Indicação</h2>
+            <p>Uso para prevenção de eventos cardiovasculares e controle da coagulação.</p>
+            <a href="https://www.domifarma.com.br/aas-protect-100mg-c-30cpr-p64733-p94745" target="_blank">Mais informações no site confiável</a>
+          </div>
+        </section>
+
+        <section class="about-card">
+          <h1>Vitamina D 1000UI</h1>
+          <div class="about-image">
+            <img src="imagens/vitaminaD.png" alt="Vitamina D">
+          </div>
+          <div class="about-section">
+            <h2>Indicação</h2>
+            <p>Fortalecimento dos ossos e prevenção da osteoporose.</p>
+            <a href="https://www.drogaraia.com.br/eurofarma-vitamina-d-1000ui-30-capsulas.html" target="_blank">Mais informações no site confiável</a>
+          </div>
+        </section>
+
+        <section class="about-card">
+          <h1>Ômega 3</h1>
+          <div class="about-image">
+            <img src="imagens/omega3.png" alt="Ômega 3">
+          </div>
+          <div class="about-section">
+            <h2>Indicação</h2>
+            <p>Ajuda na saúde do coração e no controle do colesterol.</p>
+            <a href="https://www.catarinensenutricao.com.br/omega-3-plus-120-capsulas?srsltid=AfmBOoqOZneoPNR3lUm7Y2yRzIHytka2hbJ1YBBkgNc1r6AoacqugBlg" target="_blank">Mais informações no site confiável</a>
+          </div>
+        </section>
+
+        <section class="about-card">
+          <h1>Metformina 500mg</h1>
+          <div class="about-image">
+            <img src="imagens/metformina.png" alt="Metformina">
+          </div>
+          <div class="about-section">
+            <h2>Indicação</h2>
+            <p>Controle da glicemia em pacientes com diabetes tipo 2.</p>
+            <a href="https://www.domifarma.com.br/metformina-500mg-c-60cpr-p128442-p95362" target="_blank">Mais informações no site confiável</a>
+          </div>
+        </section>
+
+        <section class="about-card">
+          <h1>Omeprazol 20mg</h1>
+          <div class="about-image">
+            <img src="imagens/omeprazol.png" alt="Omeprazol">
+          </div>
+          <div class="about-section">
+            <h2>Indicação</h2>
+            <p>Proteção do estômago contra gastrite e refluxo gástrico.</p>
+            <a href="https://www.domifarma.com.br/omeprazol-40-mg-c-7-cap-p67239-p90983" target="_blank">Mais informações no site confiável</a>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <footer>© N.E.T.O - 2025</footer>
+</body>
+</html>
