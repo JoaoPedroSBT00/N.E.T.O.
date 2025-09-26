@@ -7,7 +7,7 @@ The main goal is to **facilitate elderly care** by using remote technology throu
 
 ---
 
-## 👨‍💻 Developed by
+## Developed by
 - João Pedro Silva Brito Teixeira  
 - Gustavo Roberto Souza Bernardo  
 - Robério Róbson Oliveira De Matos Júnior  
@@ -15,7 +15,7 @@ The main goal is to **facilitate elderly care** by using remote technology throu
 
 ---
 
-## 🎯 Project Goals
+## Project Goals
 - Monitor the elderly’s **heart rate**.  
 - Detect **falls in real-time** using sensors.  
 - Display the information on a **web interface**.  
@@ -23,7 +23,7 @@ The main goal is to **facilitate elderly care** by using remote technology throu
 
 ---
 
-## ⚙️ Features
+##  Features
 ✔️ Wristband equipped with **ESP32** + **heart rate sensor**  
 ✔️ **Flask server** to receive and display collected data  
 ✔️ **Web Interface** for monitoring  
@@ -31,7 +31,7 @@ The main goal is to **facilitate elderly care** by using remote technology throu
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 - **ESP32** (main hardware)  
 - **Heart rate sensor**  
 - **Flask (Python)** – web server  
@@ -40,6 +40,6 @@ The main goal is to **facilitate elderly care** by using remote technology throu
 
 ---
 
-## 📌 Project Status
+##  Project Status
 ⚠️ The project in this repository is **still under development**.  
 Our team is working on **updates and improvements** to deliver a solution that is increasingly functional and accessible.  
