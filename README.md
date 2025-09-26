@@ -1,7 +1,7 @@
 #  N.E.T.O.  
 **Notification and Observation Technology**
 
-The **N.E.T.O.** project (nicknamed **"Neto"**) is a **Final Course Project** developed by students of the **Federal Institute of Education, Science and Technology of Bahia – Campus Guanambi**.  
+The **N.E.T.O.** project is a **Final Course Project** developed by students of the **Federal Institute of Education, Science and Technology of Bahia – Campus Guanambi**.  
 
 The main goal is to **facilitate elderly care** by using remote technology through a smart wristband capable of monitoring vital signs and sending real-time notifications to family members and/or caregivers.  
 
